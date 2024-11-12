@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* disable fullscreen in the video  */
+video::-webkit-media-controls-fullscreen-button {
+  display: none;
+}
+video::-webkit-media-controls {
+  display: none !important;
+}
+video::cue {
+  display: none !important;
+}
+
+video::-webkit-media-controls-start-playback-button {
+  display: none !important;
+  opacity: 0;
+  position: absolute;
+  top: -9999px;
+  -webkit-appearance: none;
+}
+
+.full-height-element {
+  /* height: calc(var(--vh, 1vh) * 100); */
+  height: 100svh;
+}
+
+[play-button-popup] {
+  @apply scale-0 transition-all duration-[400ms] ease-out motion-reduce:scale-100;
+}
+
+.play-pop [play-button-popup] {
+  @apply scale-100;
+}
+
+[unmute-popup] {
+  @apply w-60 transition-all duration-[400ms] ease-out motion-reduce:w-40;
+}
+
+.tap-to-unmute [unmute-popup] {
+  @apply w-32;
+}
