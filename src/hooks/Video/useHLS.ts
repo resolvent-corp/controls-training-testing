@@ -44,7 +44,7 @@ const useHLS = ({ videoRef, video, play, userInteracted }: useHLSProps) => {
     const videoElement = videoRef.current;
     if (!videoElement) return;
 
-    if (False) {
+    if (false) {
       const hls = new Hls();
       hls.loadSource(video.mediaUrl);
       hls.attachMedia(videoElement);
