@@ -44,15 +44,16 @@ const useHLS = ({ videoRef, video, play, userInteracted }: useHLSProps) => {
     const videoElement = videoRef.current;
     if (!videoElement) return;
 
-    if (false) {
-      const hls = new Hls();
-      hls.loadSource(video.mediaUrl);
-      hls.attachMedia(videoElement);
-      hls.on(Hls.Events.MANIFEST_PARSED, () => {
-        videoElement.addEventListener('canplay', onCanPlay);
-      });
-      hlsRef.current = hls;
-    } else if (videoElement.canPlayType('application/vnd.apple.mpegurl')) {
+    // if (false) {
+    //   const hls = new Hls();
+    //   hls.loadSource(video.mediaUrl);
+    //   hls.attachMedia(videoElement);
+    //   hls.on(Hls.Events.MANIFEST_PARSED, () => {
+    //     videoElement.addEventListener('canplay', onCanPlay);
+    //   });
+    //   hlsRef.current = hls;
+    // } else 
+      if (videoElement.canPlayType('application/vnd.apple.mpegurl')) {
       videoElement.src = video.mediaUrl;
       videoElement.addEventListener('loadedmetadata', () => {
         videoElement.addEventListener('canplay', onCanPlay);
